@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'Trust-in Boulogne@trust-in.fr'
+  default from: 'contact@experimentup.com'
   layout 'mailer'
 
 

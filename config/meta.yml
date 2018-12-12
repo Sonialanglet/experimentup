@@ -1,5 +1,5 @@
-meta_product_name: "Trust-in"
-meta_title: "Trust-in - Découvrez et partagez d'incroyables activités et services"
-meta_description: "Découvrez des activités conviviales près de chez vous et des services recommandés par votre réseau de proximité : des expériences, des rencontres pour illuminer votre quotidien"
+meta_product_name: "Experiment'Up"
+meta_title: "Experiment'Up - Vivez des expériences inédites"
+meta_description: "Découvrez des activités conviviales près de chez vous : des expériences, des rencontres pour illuminer votre quotidien"
 meta_image: "boulognehome.png"                       # should exist in `app/assets/images/`
-twitter_account: "@Trust-in_twitter_account"   # required for Twitter Cards
+twitter_account: "@Experimentup_twitter_account"   # required for Twitter Cards

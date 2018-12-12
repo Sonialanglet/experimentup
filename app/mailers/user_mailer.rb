@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
   # with the following lookup:
   #
   #   en.user_mailer.welcome.subject
-  default from: "Trust-in Boulogne@trust-in.fr"
+  default from: "hello@experimentup.com"
 
   #
 
@@ -27,20 +27,20 @@ class UserMailer < ApplicationMailer
 def notify_book(booking)
   @booking = booking # Instance variable => available in view
 
-  mail(to:   @booking.prestation.user.email, subject: 'Nouveau message dans Trust-in')
+  mail(to:   @booking.prestation.user.email, subject: 'Nouveau message dans experimentup')
 end
 
 def notify_want_join(group)
   @group = group
   group_users = GroupUser.where(group: @group, status: 'pending')
   @who_is_asking = group_users.last.user
-  mail(to:   @group.founder.email, subject: 'Nouvelle demande dans Trust-in')
+  mail(to:   @group.founder.email, subject: 'Nouvelle demande dans experimentup')
 
 end
 
 def notify_accept_join(group_user)
   @group_user = group_user
-  mail(to:   @group_user.user.email, subject: 'Votre demande a été acceptée dans Trust-in')
+  mail(to:   @group_user.user.email, subject: 'Votre demande a été acceptée dans experimentup')
 
 end
 
