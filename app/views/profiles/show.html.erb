@@ -1,0 +1,188 @@
+<!-- photo de la personne qui s'incrit, avatar par defaut si pas de chargement photo -->
+<!-- gestion de la photo via facebook ou bien via le formulaire d'inscription -->
+<% if @profile.user.facebook_picture_url%>
+  <% avatar_url = @profile.user.facebook_picture_url %>
+<% elsif @profile.user.photo.present? %>
+  <% avatar_url = cl_image_path(@profile.user.photo, width: 130, height: 130, crop: :thumb, graviti: :face) %>
+<% else %>
+  <% avatar_url = "profile_icon.png" %>
+<% end %>
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="profil">
+      <div class="photo-show">
+       <%= image_tag avatar_url, class: "photo", crop: :thumb %>
+      </div>
+
+      <p class="name-show"><%= @profile.user.first_name%> <%= @profile.user.last_name%> </p>
+
+      <%if current_user == @profile.user %>
+        <div class="circle-icon-profile">
+          <%= link_to edit_user_registration_path do %>
+            <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+            <p>modifier photo</p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="services">
+        <div class="profile-infos">
+        <p> <strong> Lieu d'habitation :  </strong><%= @profile.locality%> </p>
+        <% if !@profile.school1.present? %>
+          <p> <strong> Etablissement(s) fréquentés :</strong> </p>
+          <ul>
+            <li> <%= @profile.school1%></li>
+            <li> <%= @profile.school2%></li>
+          </ul>
+        <% end %>
+        <% if !@profile.formation1.present? %>
+          <p> <strong>Formation : </strong>
+            <ul>
+              <li> <%= @profile.formation1%> </li>
+              <li> <%= @profile.formation2%> </li>
+            </ul>
+            <% end %>
+
+            <% if @profile.school_child_id? %>
+              <p> <strong>Etablissement fréquenté par les enfants de <%=@profile.user.first_name %> : </strong>
+                <ul>
+                  <li> <%= @profile.school_child.name%> </li>
+
+                </ul>
+                <% end %>
+
+        <% if current_user == @profile.user %>
+          <div class="circle-icon-profile">
+            <%= link_to edit_profile_path(@profile) do %>
+              <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+               <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if @profile.description.present? %>
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="services">
+
+       <div class="profile-infos">
+        <p> <%= @profile.description%> </p>
+
+
+        <% if current_user == @profile.user %>
+          <div class="circle-icon-profile">
+            <%= link_to edit_profile_path(@profile) do %>
+              <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<% if @prestations.present? %>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="services">
+        <h2> Les services proposés </h2>
+        <div class="fiche-prestation">
+          <ul>
+            <% @prestations.each do |prestation|%>
+              <li class="item-list" style="list-style-type: none";>
+                <div class="name">
+                  <%= link_to prestation_path(prestation) do %>
+                 <p><%= prestation.category.name%> </p>
+                 <% end %>
+                </div>
+                <div class="price">
+                 <p> <%= prestation.price%></p>
+                </div>
+                <% if current_user == @profile.user %>
+                  <div class="circle-icon-edit">
+                    <%= link_to edit_prestation_path(prestation) do %>
+                      <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+                    <% end %>
+                  </div>
+
+                  <div class="circle-icon-delete">
+                    <%= link_to '<i class="fas fa-trash-alt" aria-hidden="true"></i>
+                    '.html_safe, prestation_path(prestation),
+                    method: :delete,
+                    data: { confirm: 'are you sure?'},class: "btn btn-gray"%>
+                  </div>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<% end %>
+
+<% if current_user == @profile.user %>
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="services">
+      <h2> Ajoutez des services </h2>
+      <p> proposez vos services aux autres membres</p>
+        <div class="plus">
+          <div class="circle-icon-plus">
+            <%= link_to new_prestation_path do %>
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+    </div>
+    </div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="services">
+      <h2> Les recommandations  </h2>
+        <div class="recap_recomandations_profile">
+        <% @prestations.each do |prestation|%>
+          <div class="">
+           <% prestation.recomands.each do |reco|%>
+            <ul>
+              <li>  <p> <%= reco.user.first_name %> <%= reco.user.last_name %> pour le <%=prestation.category.name %></p> </li>
+            </ul>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if current_user == @profile.user %>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="services">
+        <p>Vous souhaitez supprimer votre compte ? </p>
+        <div class="icon-delete-blue">
+          <p class="name"><%= link_to '<i class="fas fa-trash-alt" aria-hidden="true"></i>
+          '.html_safe, registration_path(current_user),
+          method: :delete,
+          data: { confirm: 'are you sure?'},class: "btn btn-gray"%> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

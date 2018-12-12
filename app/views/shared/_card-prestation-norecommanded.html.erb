@@ -1,0 +1,87 @@
+<% if prestation.user.facebook_picture_url %>
+  <% avatar_url = prestation.user.facebook_picture_url %>
+<% elsif prestation.user.photo.present? %>
+  <% avatar_url = cl_image_path(prestation.user.photo, crop: :thumb, graviti: :face) %>
+<% else %>
+  <% avatar_url = "profile_icon.png" %>
+<% end %>
+
+<!-- si logo des prestations  -->
+<% if prestation.category.name=="Babysitting" %>
+  <% image_path category = "babysitting.jpg" %>
+  <% elsif prestation.category.name=="Soutien scolaire" %>
+    <% image_path category = "books.jpg" %>
+    <% elsif prestation.category.name=="Cours musique" %>
+      <% image_path category = "coursmusique.jpg" %>
+      <% elsif prestation.category.name=="Pet Sitting" %>
+        <% image_path category = "petsitting.jpg" %>
+        <% elsif prestation.category.name=="Travaux" %>
+          <% image_path category = "travaux.jpg" %>
+          <% elsif prestation.category.name=="Loisir" %>
+            <% image_tag category = "loisir.jpg" %>
+<% else %>
+  <% image_path category = "bulles.jpg" %>
+<% end %>
+
+<div class="card-prestations-index">
+  <div class="photo-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path avatar_url%>');">
+
+    <%= link_to '', prestation_path(prestation), class:'card-link' %>
+  </div>
+
+  <div class = "card-footer">
+    <div class="recomand-reseau">
+        <% if prestation.recomands.count > 0 %>
+            <p> <%= link_to recomandation_prestation_path(prestation), method: :post,
+            data: { confirm: "Votre recommandation a été prise en compte !" }  do %>
+             <i class="fas fa-thumbs-up btn btn-vote" ></i>
+              <% end %>
+             </p>
+
+          <div class="recomand-reseau-count" >
+            <%= link_to prestation_path(prestation) do %>
+            <p> <%= pluralize(prestation.recomands.count, 'reco')%> </p>
+            <% end %>
+          </div>
+
+        <% else %>
+          <p> <%= link_to recomandation_prestation_path(prestation), method: :post,
+          data: { confirm: "Votre recommandation a été prise en compte !" }  do %>
+          <i class="far fa-thumbs-up btn btn-vote"></i>
+          <% end %>
+          </p>
+          <div class="recomand-reseau-count" >
+            <%= link_to prestation_path(prestation) do %>
+            <p> <%= pluralize(prestation.recomands.count, 'reco')%> </p>
+            <% end %>
+          </div>
+
+        <% end %>
+
+    </div>
+
+
+    <div class="names">
+      <h4 ><strong> <%= prestation.user.first_name.capitalize%> <%= prestation.user.last_name.capitalize%></strong> </h4>
+
+
+      <p ><strong> <%= prestation.category.name.upcase%> </strong> </p>
+      <% if prestation.title %>
+        <p ><strong> <%= prestation.title%> </strong> </p>
+      <% end %>
+      <% if prestation.user.profile.date_of_birth %>
+        <p> <%= Date.today.year-prestation.user.profile.date_of_birth.year%> ans</p>
+      <% end %>
+      <p> <%= prestation.user.profile.locality%> </p>
+      <% if prestation.user.profile.latitude %>
+      <p> Distance : <%= (Geocoder::Calculations.distance_between([prestation.user.profile.latitude, prestation.user.profile.longitude], [current_user.profile.latitude, current_user.profile.longitude], options = {})).round(1)%> kM </p>
+      <% end %>
+    </div>
+
+
+  </div>
+
+</div>
+
+
+

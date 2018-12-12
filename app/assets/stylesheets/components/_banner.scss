@@ -1,0 +1,90 @@
+.banner {
+  color: white;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+.banner h1 {
+  font-family: lato;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+
+  text-transform: uppercase;
+}
+.banner h2 {
+
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  text-transform: uppercase;
+
+
+}
+
+.banner p {
+  font-size: 16px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+
+}
+
+// .banner-content {
+//   margin: 0px;
+//   padding: 0px;
+// }
+.text-banner {
+  margin-bottom: 30px;
+}
+
+.banner_press_logo {
+  background-color: #b0b0b04d;
+  display: flex;
+  justify-content: space-around;
+  padding: 100px;
+  margin-top: 45px;
+}
+.press_logo {
+  // filter: grayscale(100%);
+  height: 60px;
+}
+
+
+.banner-end {
+  color: white;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.banner-end h1 {
+  font-family: lato;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+
+  text-transform: uppercase;
+}
+.banner-end h2 {
+
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  text-transform: uppercase;
+
+
+}

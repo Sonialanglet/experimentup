@@ -1,0 +1,383 @@
+
+.btn-trust_large {
+  color: white;
+
+  padding: 10px 10px;
+  margin: 3px;
+  // border: 0.5px, solid, #FF0108;
+
+  border-style: solid;
+  border-color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  height: 48px;
+  width: 169px;
+  font-size: small;
+  transition: background 0.7s ease;
+  text-decoration: none;
+  margin-top: 5px;
+}
+
+.btn-trust_large:hover {
+  opacity: 0.7;
+  background: linear-gradient(45deg, #FF4F61, #FF0108);
+  opacity: 0,5;
+  text-decoration: none;
+  color: white;
+}
+
+
+.btn-new-prestation {
+  color: white;
+  background: linear-gradient(#FF4F61, #FF0108);
+  margin: 12px;
+  border-radius: 3px;
+  font-weight: bold;
+  transition: background 0.7s ease;
+  text-decoration: none;
+}
+
+.btn-new-prestation:hover {
+  opacity: 0.7;
+  background: #FF4F61;
+  opacity: 0,5;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-facebook {
+  color: white;
+  background: rgb(76, 100, 166);
+  width: 100%;
+  margin-bottom: 50px;
+  padding:15px;
+
+  a {
+    color : white;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-family: lato;
+  }
+}
+
+.btn-creer {
+  color: white;
+  background: rgb(73, 205, 194);
+  width: 100%;
+  margin-bottom: 50px;
+  padding:15px;
+
+  a {
+    color : white;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-family: lato;
+  }
+}
+
+.btn-truster {
+  color: white;
+  background: linear-gradient(#FF4F61, #FF0108);
+  height: 46px;
+  width: 195px;
+  margin: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.7s ease;
+  text-decoration: none;
+}
+
+.btn-truster:hover {
+  opacity: 0.7;
+  background: #FF4F61;
+  opacity: 0,5;
+  text-decoration: none;
+  color: white;
+}
+.btn-continuer {
+  color: white;
+  height: 46px;
+  width: 195px;
+  background: rgba(73, 205, 194, 1);
+  margin: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.7s ease;
+  text-decoration: none;
+}
+
+.btn-continuer:hover {
+  opacity: 0.7;
+  background: rgba(73, 205, 194,0.6);
+  opacity: 0,5;
+  text-decoration: none;
+  color: white;
+}
+.btn-cancel {
+  color: white;
+  height: 46px;
+  width: 195px;
+  background: rgba(76, 100, 166,1);
+  margin: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.7s ease;
+  text-decoration: none;
+}
+
+.btn-cancel:hover {
+  opacity: 0.7;
+  background: rgba(76, 100, 166,0.6);
+  opacity: 0,5;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-delete {
+  color: white;
+  height: 46px;
+  width: 195px;
+  background: rgba(127, 103, 103, 1);
+  margin: 12px;
+  padding:5px;
+  border-radius: 5px;
+
+  transition: background 0.7s ease;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-delete:hover {
+  opacity: 0.7;
+  background: rgba(127, 103, 103,0.6);
+  text-decoration: none;
+  color: white;
+}
+
+.recomand-btn {
+  margin: 2px;
+  position: absolute;
+  left: 0px;
+  bottom: 2px;
+
+    }
+
+    .recomand-btn:hover {
+      opacity: 0.7;
+    }
+
+.recomand-btn-lg {
+  height: 40px;
+  width: 40px;
+  margin: 5px;
+  color: white;
+  border-radius: 50%;
+  background-color: red;
+
+    a {
+      color: red;
+    }
+}
+
+.btn-delete-booking {
+  color: white;
+  height: 46px;
+  width: 195px;
+  background: rgba(127, 103, 103, 1);
+  margin: 12px;
+  padding:5px;
+  border-radius: 5px;
+
+  transition: background 0.7s ease;
+  text-decoration: none;
+position:absolute;
+right:1px;
+top:2px;
+}
+
+.btn-delete-booking:hover {
+  opacity: 0.7;
+  background: rgba(127, 103, 103,0.6);
+  text-decoration: none;
+  color: white;
+}
+
+.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:150px;
+
+    a {
+      text-decoration:none;
+    }
+
+  }
+
+.btn-post {
+
+  color: white;
+  height: 35px;
+  width: 80px;
+  background: #26acdd;
+  /* margin: 12px; */
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: lato;
+  font-size: 18px;
+}
+
+.btn-post:hover {
+  opacity: 0.7;
+  background: rgba(37, 150, 227,0.6);
+  text-decoration: none;
+  color: white;
+}
+
+.btn-post-small {
+  color: white;
+  height: 36px;
+  width: 99px;
+  background: #26acdd;
+  /* margin: 12px; */
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: lato;
+  font-size: 18px;
+  }
+
+  .btn-connecter {
+    color: white;
+    height: 46px;
+    width: 150px;
+    background: #26acdd;
+    /* margin: 12px; */
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: lato;
+    font-size: 18px;
+
+
+  }
+
+.btn-detail {
+  height: 35px;
+  width: 137px;
+  background: #26acdd;
+  /* margin: 12px; */
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: lato;
+  font-size: 18px;
+  text-decoration: none;
+  display: block;
+  margin: 0 auto;
+  color:white;
+
+
+}
+
+.btn-detail:hover {
+  opacity: 0.7;
+  background: rgba(37, 150, 227,0.6);
+  text-decoration: none;
+  color: white;
+}
+
+
+.btn-back-services {
+ margin-left: 10px;
+ border-style: groove;
+ padding: 5px;
+ border-radius: 5px;
+ width: 250px;
+ border-color: #2f92df;
+
+
+  i {
+
+    font-size:19px;
+    color:#1e545c;
+
+  }
+
+
+}
+
+.btn-back-service:hover {
+  opacity: 0.7;
+  text-decoration: none;
+  color: white;
+}
+
+
+.btn-vote {
+
+  width:40px;
+}
+
+.btn-vote:hover {
+  color: blue;
+  -webkit-transform:scale(1.3);
+   -moz-transform:scale(1.3);
+   -ms-transform:scale(1.3);
+   -o-transform:scale(1.3);
+   transform:scale(1.3);
+
+}
+
+
+
+.picto-item {
+  position: relative;  /*les .picto-item deviennent référents*/
+  cursor: help;
+  color:white;
+
+
+}
+
+/* on génère un élément :after lors du survol et du focus :*/
+
+.picto-item:hover:after,
+.picto-item:focus:after {
+  content: attr(aria-label);  /* on affiche aria-label */
+  position: absolute;
+  top: -2.4em;
+  left: 50%;
+  transform: translateX(-50%); /* on centre horizontalement  */
+  z-index: 1; /* pour s'afficher au dessus des éléments en position relative */
+  white-space: nowrap;  /* on interdit le retour à la ligne*/
+  padding: 5px 14px;
+  background: #413219;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1.2rem;
+}
+
+/* on génère un second élément en :before pour la flèche */
+
+[aria-label]:hover:before,
+[aria-label]:focus:before {
+  content: "▼";
+  position: absolute;
+  top: -1em;
+  left: 50%;
+  transform: translateX(-50%); /* on centre horizontalement  */
+  font-size: 20px;
+  color: #413219;
+}
+
+/* pas de contour durant le :focus */
+[aria-label]:focus {
+  outline: none;
+}
+

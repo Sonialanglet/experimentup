@@ -1,0 +1,411 @@
+.profil {
+  background-color: rgb(38, 172, 221);
+  justify-content: center;
+  padding:10px;
+}
+
+.name-show {
+  text-align: center;
+  font-family: lato;
+  font-size: 18px;
+  color:white;
+}
+
+
+
+.content-show {
+
+}
+
+.photo-show {
+  padding-top: 5px;
+  margin-bottom: 20px;
+  h2 {
+    text-align: center;
+    font-family: lato;
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
+
+.photo {
+  margin-top: 10px;
+  border-radius: 50%;
+  height:130px;
+  width: 130px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: white 1px solid;
+
+}
+
+
+.services  {
+margin-top:5px;
+margin-bottom: 5px;
+background-color: white;
+padding-top: 5px;
+padding-bottom: 5px;
+position:relative;
+}
+
+.services h2 {
+  text-align: center;
+  font-family: lato;
+  font-weight: bold;
+  font-size: 16px;
+  padding-top: 5px;
+}
+
+.services p {
+
+  font-family: lato;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+
+  text-align: -webkit-center;
+}
+
+.profile-infos {
+  padding-left: 30px;
+
+  ul {
+
+  list-style-type: none;
+  font-size: 15px;
+
+}
+}
+
+.recos-all {
+  margin-top:5px;
+  margin-bottom: 5px;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 20px;
+
+h2 {
+  text-align: center;
+  font-family: lato;
+  font-weight: bold;
+  font-size: 16px;
+
+
+}
+}
+.photoservice {
+  margin-top: 10px;
+  height:80px;
+  width: 80px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: white 1px solid;
+}
+
+
+
+.photo-small {
+  margin-top: 10px;
+  border-radius: 50%;
+  height:30px;
+  width: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: white 1px solid;
+
+}
+
+.price-services {
+  text-align: center;
+  font-family: lato;
+  font-weight: bold;
+  font-size: 16px;
+
+
+}
+
+.description-prestation {
+
+  h2 {
+    text-align: center;
+    font-family: lato;
+    font-weight: bold;
+    font-size: 23px;
+    padding-top: 5px;
+  }
+  margin-top:5px;
+  margin-bottom: 5px;
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.description-prestation p {
+  text-align: center;
+  font-family: lato;
+  font-size: 16px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.description-prestation label {
+  font-family: lato;
+  font-size: 16px;
+}
+
+.fiche-prestation {
+
+
+}
+
+.item-list {
+  display:flex;
+
+}
+
+.name {
+  width: 140px;
+  font-family: lato;
+  font-size: 16px;
+
+}
+
+.price {
+  width: 40px;
+  font-family: lato;
+  font-size: 16px;
+}
+.circle-icon-edit {
+  position: absolute;
+  right: 40px;
+  a {
+    color: #469AE0;
+  }
+
+}
+
+.circle-icon-delete {
+  position: absolute;
+  right: 0px;
+  color:#469AE0;
+  a {
+    color: #469AE0;
+  }
+
+
+}
+
+.modifier {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.circle-icon-profile {
+    background: rgb(38, 172, 221);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    a {
+      color: white;
+    }
+    p {
+      color: white;
+      font-size: 9px;
+    }
+
+
+}
+
+.icon-delete-blue {
+
+    width: 40px;
+    height: 40px;
+    display: flex;
+    position: absolute;
+    right: 40px;
+    bottom: 2px;
+    a {
+      color: rgb(38, 172, 221);
+    }
+
+
+}
+
+.plus {
+  margin-top: 10px;
+}
+.circle-icon-plus {
+    background: rgb(38, 172, 221);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    right: 23px;
+    top: 10px;
+    margin-top:10px;
+
+    a {
+      color: white;
+    }
+
+
+}
+.review_single {
+text-decoration: none;
+list-style: none;
+
+p {
+  text-align: center;
+  font-family: lato;
+  font-size: 16px;
+  padding-top: 4px;
+  padding-bottom: 7px
+}
+
+
+
+}
+
+.review_single li {
+  list-style-position:inside;
+     border: 1px dotted grey;
+     border-radius: 3px;
+}
+
+.img-recos-presta {
+  display:flex;
+
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+
+  p {
+      font-family: lato;
+      font-size: 15px;
+
+  }
+
+  li {
+    list-style-type: none;
+    padding-bottom: 10px;
+  }
+}
+
+.avatar_small_reco {
+  border-radius: 50%;
+  height:30px;
+  width: 30px;
+
+
+}
+
+
+.img-recos-photo {
+  position: absolute;
+  left: 70px;
+
+}
+
+.img-recos-name {
+  position: absolute;
+  left: 112px;
+
+}
+
+.recommandez-show {
+
+  background: white;
+
+    p {
+      text-align: center;
+          font-family: lato;
+          font-size: 15px;
+          padding-left: 10px;
+          padding-right: 10px;
+          padding-top: 10px;
+
+          font-weight: bold;
+  }
+}
+
+
+
+.cancel-reco {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+
+  p {
+    text-align: center;
+    font-family: lato;
+    font-size: 15px;
+  }
+
+}
+
+.phone {
+  background-color: white;
+  width: 172px;
+  height: 32px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 3px;
+  margin-bottom: 11px;
+  padding: 5px;
+
+  p {
+    font-family: lato;
+    font-size: 14px;
+    color:black;
+  }
+}
+
+.recap_recomandations_profile {
+
+ul {
+
+  list-style-type: none;
+}
+
+
+p {
+  font-family: lato;
+  font-size: 14px;
+  color:black;
+  padding-top:1px;
+  line-height: 5px;
+}
+
+}
+
+.registration {
+
+label {
+  color:white;
+}
+
+}
+
+

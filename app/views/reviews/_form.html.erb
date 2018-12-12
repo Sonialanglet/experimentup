@@ -1,0 +1,19 @@
+
+
+
+  <strong> <p> <%= @prestation.reviews.count %> avis </p> </strong>
+    <div class="review_single">
+       <% @prestation.reviews.each do |review| %>
+       <li>
+        <p> "  <%= review.comment  %>"</p>
+       <% end %>
+      </li>
+     </div>
+    <%= simple_form_for([ prestation, review ]) do |form| %>
+      <%= form.input :comment, as: :text, label:"Poster votre avis" %>
+      <%= form.submit "poster", class: "btn btn-post" %>
+    <% end %>
+
+
+
+

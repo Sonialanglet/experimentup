@@ -1,0 +1,92 @@
+<% if current_user.profile.date_of_birth.present? && current_user.profile.locality.present? && current_user.profile.adress.present? %>
+
+<div class="row">
+  <div class="filtres">
+  <h1> Quels services souhaitez-vous proposer ?</h1>
+  <p> Veuillez maintenant sélectionner le ou les services que vous souhaitez proposer aux membres</p>
+
+  </div>
+</div>
+        <div id="" class="container">
+          <div class="banner" style="background-image:linear-gradient(-225deg, rgba(0,101,168,0.8) 0%, rgba(0,36,61,0.3) 50%),
+          url(<%= image_path 'coursguitare.jpg' %>);">
+
+          <div class="content">
+          <div class="registration">
+            <div class="row">
+              <div class="col-xs-12 col-md-6 col-md-offset-3">
+                <div id="" class="card-form">
+                  <% if current_user %>
+                  <div>
+                    <div class="school-astuce">
+                      <p> <i class="far fa-lightbulb"></i> Indiquez le service que vous proposez et le tarif. Donnez des détails sur vos expériences dans ce domaine pour donner envie de faire appel à vous</p>
+                    </div>
+
+                  </div>
+                    <%= simple_form_for @prestation do |f| %>
+                  <%= f.error_notification %>
+                  <div class="message-error">
+
+                  </div>
+                     <%= f.association :category, label: "Choisissez le service que vous voulez proposer ", collection: Category.all.order('name ASC') %>
+
+                  <div classe="info-bulle">
+                      <i class="far fa-question-circle picto-item" aria-label="Choissez un titre court qui décrit ce que vous proposez.Ex: garde de chiens et chats, cours de yoga, cours de piano"> </i>
+                  </div>
+
+                     <%= f.input :title, label: "Titre du service", placeholder: "Donnez un titre à votre service, ex.cours de yoga, garde de chien" %>
+                      <%= f.input :price, label: "Tarif horaire ou journalier", placeholder: "9€/h" %>
+                      <%= f.input :description, :as => :text, :input_html => { 'rows' => 10}, label: "Décrivez votre expérience", placeholder: "Décrivez votre expérience dans ce domaine et donnez quelques exemples pour donner envie aux membres de faire appel à vos services" %>
+
+                      <%= f.submit "valider", class: "btn-edit2"%>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+<% else %>
+
+<div class="content">
+  <div class="row">
+
+    <h2> Quels services souhaitez-vous proposer ?</h2>
+    <div class="filtres-categorie">
+
+      <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
+        <%= link_to edit_profile_path(current_user.profile) do %>
+        <%= image_tag "babysittingTEXT3.jpg", class:"image-cat" %>
+        <% end %>
+
+      </div>
+
+
+      <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
+        <%= link_to edit_profile_path(current_user.profile) do %>
+         <%= image_tag "coursMUSIQUETEXT4.jpg", class:"image-cat" %>
+         <% end %>
+      </div>
+
+      <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
+        <%= link_to edit_profile_path(current_user.profile) do %>
+         <%= image_tag "PETSITTINGTEXT4.jpg", class:"image-cat" %>
+         <% end %>
+      </div>
+
+
+
+        <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
+          <%= link_to edit_profile_path(current_user.profile) do %>
+           <%= image_tag "DIVERSTEXT4.jpg", class:"image-cat" %>
+           <% end %>
+        </div>
+
+  </div>
+    <% end %>
+
+    </div>
+
+

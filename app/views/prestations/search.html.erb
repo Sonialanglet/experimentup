@@ -1,0 +1,64 @@
+<div class="container">
+
+<div class="search-form">
+  <p> Filtrez votre recherche </p>
+
+<%= form_tag prestations_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "rechercher par service ou par personne"
+  %>
+ <% end %>
+</div>
+
+<div class="btn btn-back-services">
+  <%= link_to prestations_path do %>
+  <i class="fas fa-arrow-circle-left"> Retour à tous les services </i>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="title-search">
+    <h1> Services <%= @category%></h1>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <% if @recomanded_prestations.present?%>
+    <div class="allprestations">
+      <h3> Services recommandés par votre réseau </h3>
+          <% @recomanded_prestations.each do |prestation| %>
+
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <%= render 'shared/card-prestation', prestation: prestation %>
+              </div>
+
+          <% end %>
+    </div>
+  <% end %>
+  </div>
+
+
+  <div class="row">
+  <% if @prestations.present?%>
+  <div class="allprestations">
+  <h3> Services qui pourraient vous intéresser </h3>
+    <% @prestations.each do |prestation| %>
+
+        <div class="col-xs-12 col-sm-6 col-md-4">
+           <%= render 'shared/card-prestation-norecommanded', prestation: prestation %>
+          </div>
+
+    <% end %>
+
+  <% end %>
+
+  </div>
+</div>
+
+
+
+</div>

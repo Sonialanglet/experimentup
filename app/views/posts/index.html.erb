@@ -1,0 +1,77 @@
+
+
+<div class="cards-container post-backg">
+  <div class = "search-form">
+
+  <%= form_tag posts_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+        id: "search",
+      placeholder: "thème dans le forum, nom d'une personne?"
+    %>
+  <% end %>
+  </div>
+
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3 ">
+    <div class="form-post">
+      <%= simple_form_for @post, :html => {:multipart => true} do |form| %>
+        <div class="form-group ">
+         <p> <%= form.input :content, as: :text, label:"Poster votre message" %> </p>
+         <p> <%= form.input :photo, label:"Joindre une photo"%> </p>
+          <%= form.input :photo_cache, as: :hidden %>
+
+        </div>
+         <%= form.submit "poster", class: "btn btn-post" %>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <% @posts.each do |post| %>
+
+
+        <div class="one-post">
+          <div class="message">
+            <div class="photo-show">
+              <% if post.user.photo.present? %>
+                <%= image_tag post.user.photo, class: "photo", crop: :thumb %>
+             <% elsif post.user.facebook_picture_url.present? %>
+                <%= image_tag post.user.facebook_picture_url, class: "photo", crop: :thumb %>
+             <% else %>
+                 <%= image_tag "profile_icon.png", class: "photo", crop: :thumb %>
+             <% end %>
+            </div>
+            <div class="message-name">
+            <p> <%= post.user.first_name %> </p>
+            <p><%= post.created_at.strftime("%d/%m/%Y")%> </p>
+            </div>
+            </div>
+          <div class="content">
+          <%= post.content %>
+            <div class="content-photo">
+            <% if post.photo.present? %>
+              <%= image_tag post.photo_url, class:"photo-post", width: 80, height: 80, crop: :thumb, graviti: :face %>
+            <% end %>
+           </div>
+          </div>
+          <div class="link-answer">
+          <%= link_to pluralize(post.replies.count, 'réponse'), post_path(post) %>
+          </div>
+        </div>
+
+      <% end %>
+      </div>
+
+
+
+</div>
+</div>
+
+
+  <%= paginate(@posts) %>
+

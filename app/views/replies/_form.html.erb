@@ -1,0 +1,13 @@
+
+
+
+
+
+
+<%= simple_form_for [@post, @reply] do |f| %>
+<div class="form-group form-post">
+  <%= f.input :content, label:"Répondre" %>
+  <%= f.submit "reply", class: "btn-new-prestation" %>
+<% end %>
+
+</div>

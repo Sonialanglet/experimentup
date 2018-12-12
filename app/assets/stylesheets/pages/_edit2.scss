@@ -1,0 +1,148 @@
+
+
+.title-information {
+margin:10px;
+margin-bottom: 26px;
+
+h2 {
+
+  text-align: center;
+    font-family: Lato;
+    font-size: 25px;
+    margin-right: 5px;
+    margin-left: 5px;
+    color: #66666f;
+    font-weight: bold;
+}
+
+h3 {
+
+  text-align: center;
+    font-family: Lato-Black;
+    font-weight: bold;
+    font-size: 25px;
+    color: #F93943;
+}
+
+p {
+  text-align: center;
+      font-family: lato;
+      font-size: 16px;
+      margin-right: 5px;
+      margin-left: 5px;
+      background: #26acdd;
+      border-radius: 5px;
+      color: white;
+      padding: 10px;
+
+
+}
+
+}
+
+
+.edit2-profile {
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+
+
+h2 {
+  font-family: lato;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #26acdd;
+}
+
+p {
+  font-family: lato;
+  font-size: 16px;
+
+  color: #4c64a6;
+}
+
+}
+
+.school-astuce {
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  background: #26acdd;
+  border-radius: 5px;
+
+  p {
+  color: white;
+    font-weight: 700;
+    text-align: center;
+    font-size: 15px;
+    font-family: lato;
+
+  }
+
+
+
+}
+
+.btn-edit2 {
+  margin-top: 20px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  background: #26acdd;
+  color:white;
+  border-radius: 3px;
+  width: 95px;
+  border: none;
+}
+
+.envie-proposer {
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top:10px;
+
+
+  h2 {
+    font-family: lato;
+    font-size: 23px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+    color: #26acdd;
+  }
+
+  p {
+    font-family: lato;
+   font-size: 20px;
+   font-weight: bold;
+   text-align: center;
+
+
+    color: #26acdd;
+  }
+
+  a {
+    text-decoration: none;
+  }
+i {
+  background: #ff6075;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+}
+
+.envie-proposer i:hover {
+  color: white;
+  -webkit-transform:scale(1.3);
+   -moz-transform:scale(1.3);
+   -ms-transform:scale(1.3);
+   -o-transform:scale(1.3);
+   transform:scale(1.3);
+
+}

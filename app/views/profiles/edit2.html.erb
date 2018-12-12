@@ -1,0 +1,47 @@
+
+<div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div class="edit2-profile edit2" >
+        <div class="card-form">
+         <h2> Veuillez confirmer votre adresse  </h2>
+
+         <div class="school-astuce">
+           <p> <i class="far fa-lightbulb"></i> Votre adresse ne sera jamais visible, ni communiquée. Elle sera utilisée uniquement pour géolocaliser les prestataires les plus proches de chez vous.</p>
+         </div>
+          <% if current_user %>
+             <%= simple_form_for @profile do |f| %>
+              <%= f.error_notification %>
+              <div class="form-inputs">
+
+                <p> <%= f.input :adress, label: "Quelle est votre adresse ?",autofocus: true, placeholder: "1 rue de Billancourt, Boulogne", required: true%> </p>
+                <%= f.hidden_field :street_number, label: "Num" %>
+                <%= f.hidden_field :route, label: "Rue"%>
+                <%= f.input :locality, label: "Ville" %>
+                <%= f.hidden_field :country, label: "pays"%>
+                <%= f.hidden_field :longitude, label: "longitude"%>
+                <%= f.hidden_field :latitude, label: "latitude"%>
+
+
+
+
+            </div>
+
+
+          <div class="form-actions">
+            <%= f.button :submit, "Valider", class:"btn-edit2"%>
+          </div>
+
+            <% end %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+</div>
+
+
+

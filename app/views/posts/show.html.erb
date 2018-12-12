@@ -1,0 +1,83 @@
+
+
+<div class="back">
+<%= link_to posts_path do %>
+<i class="fas fa-arrow-circle-left"> back</i>
+<% end %>
+</div>
+
+
+
+<div class="row">
+
+      <div class="col-xs-12 col-md-6 col-md-offset-3 ">
+        <div class="one-post">
+          <div class="message">
+            <div class="photo-show">
+              <% if @post.user.photo.present? %>
+                <%= image_tag @post.user.photo, class: "photo", crop: :thumb %>
+             <% elsif @post.user.facebook_picture_url.present? %>
+                <%= image_tag @post.user.facebook_picture_url, class: "photo", crop: :thumb %>
+             <% else %>
+                 <%= image_tag "profile_icon.png", class: "photo", crop: :thumb %>
+             <% end %>
+            </div>
+            <div class="message-name">
+             <p> <%= @post.user.first_name %> </p>
+             <p><%= @post.created_at.strftime("%d/%m/%Y")%> </p>
+            </div>
+            </div>
+          <div class="content">
+          <%= @post.content %>
+             <div class="content-photo_show">
+             <% if @post.photo.present? %>
+               <%= image_tag @post.photo_url, class:"photo-post", width: 200, height: 200, crop: :thumb, graviti: :face %>
+             <% end %>
+            </div>
+          </div>
+
+        </div>
+      <% if policy(@post).destroy? %>
+        <% if current_user == @post.user %>
+          <%= link_to post_path(@post),
+                method: :delete,
+                data: { confirm: "Are you sure?" } do %>
+            <p class="delete-post">Delete</p>
+        <% end %>
+        <% end %>
+      <% end %>
+
+
+      </div>
+
+
+</div>
+
+
+<div class="col-xs-12 col-md-6 col-md-offset-3">
+  <div class="description-replies">
+    <div class="review_single">
+      <% @post.replies.each do |reply| %>
+      <li class="message">
+
+        <div class="message-reply-name">
+          <!-- retrouver comment afficher le nom de celui qui a créer la reponse. Que chose ne va pas dans le controller de replies -->
+          <p> <%= reply.user.first_name %></p>
+        </div>
+        <div class="message-reply-date">
+            <p> <%= reply.created_at.strftime("%d/%m/%Y")  %></p>
+        </div>
+        <div class="message-reply-content">
+            <p> <%= reply.content  %></p>
+        </div>
+        <% end %>
+      </li>
+
+    </div>
+        <%= render 'replies/form', post: @post, reply: @reply %>
+  </div>
+</div>
+
+
+
+

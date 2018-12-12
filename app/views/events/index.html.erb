@@ -1,0 +1,35 @@
+
+<div class="container">
+
+<div class="row">
+  <div class="titre-events">
+
+    <h1> DECOUVRIR. SE DIVERTIR . PARTAGER</h1>
+    <p> Découvrir des expériences inoubliables à côté de chez vous.  </p>
+    <p> Se divertir grâce à des activités sélectionnées et validées pour leur côté convivial, divertissant et consensuel pour toute la famille </p>
+    <p> Partager avec des artistes, artisans et professionnels avec un vrai savoir-faire pour se divertir en famille </p>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="titre-events">
+
+    <h1> PLUSIEURS DATES DISPONIBLES </h1>
+
+  </div>
+</div>
+
+
+
+  <div class="row">
+    <% @events.each do |event| %>
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <%= render 'shared/card-event', event: event %>
+        <!-- insert <div class="card"> -->
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

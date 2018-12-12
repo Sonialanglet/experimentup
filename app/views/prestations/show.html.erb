@@ -1,0 +1,256 @@
+<% if @prestation.user.facebook_picture_url %>
+  <% avatar_url = @prestation.user.facebook_picture_url %>
+<% elsif @prestation.user.photo.present? %>
+  <% avatar_url = cl_image_path(@prestation.user.photo, width: 130, height: 130, crop: :thumb, graviti: :face) %>
+<% else %>
+  <% avatar_url = "profile_icon.png" %>
+<% end %>
+<!-- photos associees des personnes qui recommandent  -->
+
+<!-- photos associees des prestations  -->
+<% if @prestation.category.name=="Babysitting" %>
+  <% image_tag category = "babysittingTEXT3.jpg" %>
+  <% elsif @prestation.category.name=="Soutien scolaire" %>
+    <% image_tag category = "courssoutienTEXT4.jpg" %>
+    <% elsif @prestation.category.name=="Cours musique" %>
+      <% image_tag category = "coursMUSIQUETEXT4.jpg" %>
+      <% elsif @prestation.category.name=="Pet Sitting" %>
+        <% image_tag category = "PETSITTINGTEXT4.jpg" %>
+        <% elsif @prestation.category.name=="Travaux" %>
+          <% image_tag category = "travauxTEXT4.jpg" %>
+          <% elsif @prestation.category.name=="Loisir" %>
+            <% image_tag category = "loisir.jpg" %>
+<% else %>
+  <% image_tag category = "DIVERSTEXT4.jpg" %>
+<% end %>
+
+
+<div class='container'>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="profil">
+        <div class="photo-show">
+
+         <%= image_tag avatar_url, class: "photo", crop: :thumb %>
+        </div>
+
+        <p class="name-show"><%= @prestation.user.first_name%> <%= @prestation.user.last_name%> </p>
+        <p class="name-show"><%= @prestation.user.profile.locality%> </p>
+
+        <% if @prestation.user.profile.date_of_birth %>
+         <p class="name-show"><%= (Date.today.year)-(@prestation.user.profile.date_of_birth.year)%> ans
+        </p>
+        <% end %>
+        <% if @prestation.user.profile.phone %>
+          <div class="phone">
+             <p class="name-show">P : <%= @prestation.user.profile.phone%>  </p>
+          </div>
+          <% end %>
+        <% if policy(@booking).new? %>
+          <%= link_to new_prestation_booking_path(@prestation) do %>
+            <p class="btn btn-danger centered"> Contacter </p>
+        <% end %>
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="services">
+        <div class="img-services">
+         <%= image_tag category, class: "photoservice" %>
+         <p> Service <%= @prestation.category.name%> </p>
+         <% if @prestation.title%>
+           <p> Propose : <%= @prestation.title%> </p>
+         <% end %>
+        </div>
+        <div class="price-services">
+        <p>  <%= @prestation.price %> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="services">
+
+        <div class="profile-infos">
+          <p> <strong> Lieu d'habitation :  </strong><%= @prestation.user.profile.locality%> </p>
+          <p> <strong> Distance :  </strong><%= (Geocoder::Calculations.distance_between([@prestation.user.profile.latitude, @prestation.user.profile.longitude], [current_user.profile.latitude, current_user.profile.longitude], options = {})).round(1)%> kM </p>
+          <% if @prestation.user.profile.school1 %>
+            <p> <strong> Etablissement(s) fréquentés :</strong> </p>
+            <ul>
+              <li> <%= @prestation.user.profile.school1%></li>
+              <li> <%= @prestation.user.profile.school2%></li>
+            </ul>
+          <% end %>
+          <% if @prestation.user.profile.formation1 %>
+              <p> <strong>Formation : </strong>
+                <ul>
+                  <li> <%= @prestation.user.profile.formation1%></li>
+                  <li> <%= @prestation.user.profile.formation2%></li>
+                </ul>
+          <% end %>
+
+          <% if current_user == @prestation.user %>
+            <div class="circle-icon-profile">
+              <%= link_to edit_profile_path(@prestation.user.profile) do %>
+                <i class="fa fa-pencil-alt" aria-hidden="true"> </i>
+
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <% if @prestation.description.present? %>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="description-prestation">
+
+        <p> <%=  @prestation.description %> </p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <% if @prestation.user.profile.description.present? %>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="description-prestation">
+        <% unless @prestation.user.profile.description.nil? %>
+        <p> <%=  @prestation.user.profile.description %> </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="recos-all">
+        <h2> <%= pluralize(@prestation.recomands.count, 'recommandation') %> </h2>
+        <% @prestation.recomands.each do |recomandation|%>
+        <div class="">
+          <ul>
+            <li class="img-recos-presta">
+              <% if recomandation.user.facebook_picture_url %>
+               <div class="img-recos-photo">
+                  <%= image_tag recomandation.user.facebook_picture_url, class:"avatar_small_reco" %>
+               </div>
+                <div class="img-recos-name">
+                  <p> <%= recomandation.user.first_name %> <%= recomandation.user.last_name %>, </p>
+                </div>
+              <% elsif recomandation.user.photo.present? %>
+                <div class="img-recos-photo">
+                  <%= image_tag cl_image_path(recomandation.user.photo, crop: :thumb, graviti: :face), class:"avatar_small_reco" %>
+                </div>
+                <div class="img-recos-name">
+                <p> <%= recomandation.user.first_name %> <%= recomandation.user.last_name %></p>
+                </div>
+              <% else %>
+                 <div class="img-recos-photo">
+                <%= image_tag "profile_icon.png", class:"avatar_small" %>
+                </div>
+                <div class="img-recos-name">
+                <p> <%= recomandation.user.first_name %> <%= recomandation.user.last_name %></p>
+                </div>
+              <% end %>
+            </li>
+          </ul>
+
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <% @prestation.recomands.each do |recomandation|%>
+    <% if recomandation.user == current_user %>
+      <div class="row">
+         <div class="col-xs-12 col-md-6 col-md-offset-3">
+          <div class="services">
+              <div class="cancel-reco">
+                <p> Vous souhaitez annuler votre recommandation ?</p>
+                <%= link_to '<i class="fas fa-thumbs-down"></i>'.html_safe,  cancel_recomandation_prestation_path(@prestation),
+                  method: :delete,
+                  data: { confirm: 'are you sure?'},class: "btn btn-gray"%> </p>
+              </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% end %>
+
+    <% unless @prestation.recomands.any? {|recomandation| recomandation.user == current_user} %>
+
+       <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+          <div class="services">
+            <div class="recommandez-show">
+             <p> Envie de recommander <%= @prestation.user.first_name %> à votre réseau ?</p>
+             <p> <%= link_to recomandation_prestation_path(@prestation), method: :post,
+               data: { confirm: "Votre recommandation est ajoutée !" } do %>
+              <i class="far fa-thumbs-up btn btn-vote " ></i>
+             </p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+
+
+
+
+
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="description-prestation">
+            <%= render 'reviews/form', prestation: @prestation, review: @review %>
+      </div>
+    </div>
+
+
+
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+
+      <% if current_user == @prestation.user %>
+
+        <% if policy(@prestation).destroy? %>
+            <%= link_to prestation_path(@prestation),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } do %>
+              <p class="btn-delete">Supprimer</p>
+          <% end %>
+          <% end %>
+
+
+              <%= link_to edit_prestation_path(@prestation) do %>
+                <p class="btn-delete">Modifier</p>
+            <% end %>
+
+
+        <% end %>
+    </div>
+
+
+</div>
+
+
+</div>
