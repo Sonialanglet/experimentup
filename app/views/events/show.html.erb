@@ -37,7 +37,7 @@
         <% if  @event.number_of_participants - Participation.sum(:quantity) < 0 %>
         <h2> COMPLET</h2>
         <% end%>
-        <p> <strong> Tarif :</strong>  <%= @event.price_cents %> euros</p>
+        <p> <strong> Tarif :</strong>  <%= @event.price_cents/100 %> euros</p>
         <h3> Réservez vos places ! </h3>
           <%= simple_form_for [@participation] do |f| %>
           <%= f.error_notification %>
