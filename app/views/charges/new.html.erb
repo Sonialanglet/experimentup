@@ -2,7 +2,7 @@
 <%= form_tag participation_charges_path(@participation) do %>
   <article>
      <label class="amount">
-       <span>Montant: <%= @participation.amount_cents%> euros</span>
+       <span>Montant: <%= @participation.amount_cents/100%> euros</span>
      </label>
    </article>
 
@@ -12,7 +12,7 @@
     data-name="Mon évènement"
     data-email="<%= current_user.email %>"
     data-description="<%= @participation.event_ref %>"
-    data-amount="<%= @participation.amount_cents * 100 %>"
+    data-amount="<%= @participation.amount_cents %>"
     data-currency="eur"></script>
 
 
