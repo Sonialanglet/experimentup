@@ -1,11 +1,31 @@
-<h1>Achat de l'activité <%= @participation.event_ref %></h1>
+
+<div class="logo-charge">
+  <!-- Logo -->
+  <%= link_to 'https://www.experimentup.com', class: "navbar-wagon-brand" do %>
+  <h2> EXPERIMENT'UP</h2>
+    <% end %>
+</div>
+
+<div class="panier">
+<h1>Panier </h1>
+
+
+
 <%= form_tag participation_charges_path(@participation) do %>
   <article>
-     <label class="amount">
-       <span>Montant: <%= @participation.amount_cents/100%> euros</span>
-     </label>
-   </article>
+    <ul>
+      <li>
+      <span>Produit: <%= @participation.event_ref%> </span>
 
+      </li>
+      <li>
+       <span>Nombre de places: <%= @participation.quantity%> </span>
+      </li>
+
+    </ul>
+    <ul> MONTANT TOTAL : <%= @participation.amount_cents/100%> euros</span></ul>
+   </article>
+</div>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
