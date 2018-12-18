@@ -33,9 +33,11 @@
           <% if @event.date %>
              <p> <strong>Date de l'activité :</strong> <%= @event.date.strftime("%d %B %Y - %H h %M") %></p>
             <% end %>
-        <p> <strong> Nombre de places disponibles :</strong>  <%= @event.number_of_participants - Participation.sum(:quantity) %></p>
-        <% if  @event.number_of_participants - Participation.sum(:quantity) < 0 %>
-        <h2> COMPLET</h2>
+            <% if  @event.number_of_participants %>
+              <p> <strong> Nombre de places disponibles :</strong>  <%= @event.number_of_participants - Participation.sum(:quantity) %></p>
+              <% if  @event.number_of_participants - Participation.sum(:quantity) < 0 %>
+              <h2> COMPLET</h2>
+              <% end%>
         <% end%>
         <p> <strong> Tarif :</strong>  <%= @event.price_cents/100 %> euros</p>
         <h3> Réservez vos places ! </h3>
