@@ -11,7 +11,7 @@ class ParticipationsController < ApplicationController
 
     @participation = Participation.find(params[:id])
     authorize @participation
-    @event = Event.find(params[:event_id])
+
 
 
   end
