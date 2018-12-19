@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
 
   authenticated :user do
-          root 'prestations#index', as: :authenticated_root
+          root 'events#index', as: :authenticated_root
   end
 
   root to: 'pages#home'
