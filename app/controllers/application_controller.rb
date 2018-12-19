@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
+  before_action :store_user_location!, if: :storable_location?
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :first_time_visit, unless: -> {cookies[:first_visit]}
@@ -51,5 +52,12 @@ class ApplicationController < ActionController::Base
      def skip_pundit?
        devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
      end
+     def storable_location?
+           request.get? && is_navigational_format? && !devise_controller? && !request.xhr?
+         end
 
+         def store_user_location!
+           # :user is the scope we are authenticating
+           store_location_for(:user, request.fullpath)
+         end
 end
