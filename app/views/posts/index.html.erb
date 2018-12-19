@@ -13,22 +13,108 @@
   <% end %>
   </div>
 
-
-<div class="row">
-  <div class="col-xs-12 col-md-6 col-md-offset-3 ">
-    <div class="form-post">
-      <%= simple_form_for @post, :html => {:multipart => true} do |form| %>
-        <div class="form-group ">
-         <p> <%= form.input :content, as: :text, label:"Poster votre message" %> </p>
-         <p> <%= form.input :photo, label:"Joindre une photo"%> </p>
-          <%= form.input :photo_cache, as: :hidden %>
-
-        </div>
-         <%= form.submit "poster", class: "btn btn-post" %>
-        <% end %>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class= "comment-experiences">
+       <h1> GALERIE DES TEMOIGNAGES DE L'INITIATION AU GRAFFITI</h1>
+       <h2> "Une activité très originale, à partager en famille"</h2>
+      </div>
     </div>
   </div>
-</div>
+
+
+
+  <div class="row">
+    <div class="col-xs-12 ">
+      <div class= "images-experiences">
+        <div class=card-temoignage-full>
+          <div class="card-temoignage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),  url('<%= image_path 'bulles.jpg' %>');">
+          </div>
+         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-4  ">
+      <div class= "images-experiences">
+        <div class=card-temoignage-full>
+          <div class="card-temoignage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),  url('<%= image_path 'bulles.jpg' %>');">
+          </div>
+         </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 ">
+      <div class= "images-experiences">
+        <div class=card-temoignage-full>
+          <div class="card-temoignage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),  url('<%= image_path 'bulles.jpg' %>');">
+          </div>
+         </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 ">
+      <div class= "images-experiences">
+        <div class=card-temoignage-full>
+          <div class="card-temoignage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),  url('<%= image_path 'bulles.jpg' %>');">
+          </div>
+         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-4  ">
+      <div class= "images-experiences">
+        <div class=card-temoignage-full>
+          <div class="card-temoignage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),  url('<%= image_path 'bulles.jpg' %>');">
+          </div>
+         </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 ">
+      <div class= "images-experiences">
+        <div class=card-temoignage-full>
+          <div class="card-temoignage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),  url('<%= image_path 'bulles.jpg' %>');">
+          </div>
+         </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 ">
+      <div class= "images-experiences">
+        <div class=card-temoignage-full>
+          <div class="card-temoignage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),  url('<%= image_path 'bulles.jpg' %>');">
+          </div>
+         </div>
+      </div>
+    </div>
+  </div>
+    <div class="col-xs-12 col-md-6 ">
+      <div class= "images-experiences">
+        <div class=card-temoignage-full>
+          <div class="card-temoignage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),  url('<%= image_path 'bulles.jpg' %>');">
+          </div>
+         </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6 ">
+      <div class= "images-experiences">
+        <div class=card-temoignage-full>
+          <div class="card-temoignage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),  url('<%= image_path 'bulles.jpg' %>');">
+          </div>
+         </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 ">
+      <div class= "images-experiences">
+        <div class=card-temoignage-full>
+          <div class="card-temoignage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),  url('<%= image_path 'bulles.jpg' %>');">
+          </div>
+         </div>
+      </div>
+    </div>
+  </div>
 
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
@@ -67,6 +153,21 @@
       <% end %>
       </div>
 
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3 ">
+    <div class="form-post">
+      <%= simple_form_for @post, :html => {:multipart => true} do |form| %>
+        <div class="form-group ">
+         <p> <%= form.input :content, as: :text, label:"Poster votre commentaire" %> </p>
+         <p> <%= form.input :photo, label:"Joindre une photo"%> </p>
+          <%= form.input :photo_cache, as: :hidden %>
+
+        </div>
+         <%= form.submit "poster", class: "btn btn-post" %>
+        <% end %>
+    </div>
+  </div>
+</div>
 
 
 </div>
