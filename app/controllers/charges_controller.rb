@@ -25,6 +25,7 @@ class ChargesController < ApplicationController
     )
 
     @participation.update(payment: charge.to_json, status: 'payé')
+
     redirect_to participation_path(@participation)
 
 

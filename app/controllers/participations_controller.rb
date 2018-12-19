@@ -31,13 +31,18 @@ class ParticipationsController < ApplicationController
     @participation.event_ref = @event.name
     @participation.amount_cents = @event.price_cents * @participation.quantity
     authorize @participation
-        if @participation.save
-
+      @places_dispo = @event.number_of_participants - Participation.where(status:'payé').sum(:quantity) - @participation.quantity
+       if @places_dispo > 0
+         @participation.save
           redirect_to new_participation_charge_path(@participation)
-        else
+       else
           render action: 'show'
-        end
+          puts 'pas assez de places disponibles'
+       end
+
   end
+
+
 
 
 
