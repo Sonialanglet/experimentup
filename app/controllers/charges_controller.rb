@@ -25,6 +25,7 @@ class ChargesController < ApplicationController
     )
 
     @participation.update(payment: charge.to_json, status: 'payé')
+    @event.number_of_participants - Participation.where(status:'payé').sum(:quantity)
     redirect_to participation_path(@participation)
 
 

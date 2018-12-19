@@ -1,6 +1,13 @@
 <h1>Vos commandes  </h1>
+
+<% if @places_dispo < 0%>
+<p> Nous sommes désolés, il n'y a pas suffisamment de places disponibles pour l'activité que vous souhaitez réserver sur la date souhaitée </p>
+<p> Nous vous invitons à vérifier le nombre de places encore disponibles pour cette activité et de modifier le nombre de places en conséquence</p>
+<p> ou bien de choisir une nouvelle date </p>
+<% else %>
 <ul>
   <li>Status de la commande: <%= @participation.status %></li>
 
   <li>Montant: <%= @participation.amount_cents/100 %>euros </li>
 <ul>
+<% end %>
