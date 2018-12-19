@@ -95,3 +95,43 @@ p{
   margin-bottom: 50px;
 
 }
+
+.testimoniaux-event {
+
+  color: white;
+  text-align: center;
+  height: 40vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.testimoniaux-ensavoirplus {
+
+  position: absolute;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom:100px;
+  border-style: solid;
+  width: 240px;
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+
+ h2 {
+
+color: black;
+font-size: 15px;
+text-transform: uppercase;
+font-weight: bold;
+text-align:center;
+
+}
+}
