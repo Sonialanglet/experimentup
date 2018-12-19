@@ -5,29 +5,27 @@
   <h2> EXPERIMENT'UP</h2>
     <% end %>
 
-    <br /><br /><br />
+    <br /><br />
 
-<div class="panier">
-  <h2>PANIER </h2>
+
+  <h3>RECAPITULATIF DU PANIER </h3>
     <%= form_tag participation_charges_path(@participation) do %>
-    <article>
-      <ul>
-        <li>
-         <span>  <font size="+2"> <strong> Produit: </strong> <%= @participation.event_ref%> </span></font>
-        </li>
-        <li>
-         <span>   <font size="+2"> <strong> Nombre de places: </strong> <%= @participation.quantity%> </font></span>
-        </li>
 
-      </ul>
-      <ul> <font size="+2"> MONTANT TOTAL : <%= @participation.amount_cents/100%> euros</span> </font></ul>
-     </article>
+     <article>
+         <label class="panier">
+           <span>EVENEMENT: <%= @participation.event_ref %></span> <br />
+           <span>NOMBRE DE PLACES: <%= @participation.quantity%></span> <br /> <br />
+           <span><strong> MONTANT: <%= @participation.amount_cents/100 %> euros </strong></span>
 
-</div>
+         </label>
+
+       </article>
+
+
 <br /><br /><br />
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="Mon évènement"
+    data-name="EXPERIMENT'UP"
     data-email="<%= current_user.email %>"
     data-description="<%= @participation.event_ref %>"
     data-amount="<%= @participation.amount_cents %>"
@@ -35,4 +33,3 @@
 
 
 <% end %>
-
