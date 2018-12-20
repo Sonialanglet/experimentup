@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
   before_action :store_user_location!, if: :storable_location?
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :about_page
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :first_time_visit, unless: -> {cookies[:first_visit]}
 
