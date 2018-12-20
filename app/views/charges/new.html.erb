@@ -2,10 +2,10 @@
 
   <!-- Logo -->
   <%= link_to 'https://www.experimentup.com', class: "navbar-wagon-brand" do %>
-  <h2> EXPERIMENT'UP</h2>
+  <%= image_tag "logo-transparent.png", height: 150, id: 'logo-navbar' %>
     <% end %>
 
-    <br /><br />
+    <br />
 
 
   <h3>RECAPITULATIF DU PANIER </h3>
@@ -15,7 +15,7 @@
          <label class="panier">
            <span>EVENEMENT: <%= @participation.event_ref %></span> <br />
            <span>NOMBRE DE PLACES: <%= @participation.quantity%></span> <br /> <br />
-           <span><strong> MONTANT: <%= @participation.amount_cents/100 %> euros </strong></span>
+           <span><strong> MONTANT TOTAL : <%= @participation.amount_cents/100 %> euros </strong></span>
 
          </label>
 
