@@ -1,13 +1,23 @@
-<h1>Vos commandes  </h1>
+<p> <br>  </p>
+<p>  <br></p>
+<div class="participation-text">
+<% if @places_dispo<=0 %>
 
-<% if @places_dispo < 0%>
 <p> Nous sommes désolés, il n'y a pas suffisamment de places disponibles pour l'activité que vous souhaitez réserver sur la date souhaitée </p>
 <p> Nous vous invitons à vérifier le nombre de places encore disponibles pour cette activité et de modifier le nombre de places en conséquence</p>
 <p> ou bien de choisir une nouvelle date </p>
+<p> <br>  </p>
+<p>  <br></p>
 <% else %>
+<h1>Récapitulatif de votre commande  </h1>
+<p> Votre commande a bien été validée</p>
 <ul>
-  <li>Status de la commande: <%= @participation.status %></li>
+ <li>Référence de la commande: <%= @participation.event_ref %></li>
+ <li>Status de la commande: <%= @participation.status %></li>
+  <li>Montant reglé: <%= @participation.amount_cents/100 %> euros </li>
 
-  <li>Montant: <%= @participation.amount_cents/100 %>euros </li>
+  <li>Date de l'évènement: <%= @event.date.strftime("%d %B %Y - %H h %M") %></li>
+
 <ul>
 <% end %>
+</div>

@@ -34,8 +34,8 @@
              <p> <strong>Date de l'activité :</strong> <%= @event.date.strftime("%d %B %Y - %H h %M") %></p>
             <% end %>
             <% if  @event.number_of_participants %>
-              <p> <strong> Nombre de places disponibles :</strong>  <%= @event.number_of_participants - Participation.where(status:'payé').sum(:quantity)%></p>
-              <% if  @event.number_of_participants - Participation.where(status:'payé').sum(:quantity) < 0 %>
+              <p> <strong> Nombre de places disponibles :</strong>  <%= @event.number_of_participants - @event.participations.where(status:'payé').sum(:quantity)%></p>
+              <% if  @event.number_of_participants - @event.participations.where(status:'payé').sum(:quantity) < 0 %>
               <h2> COMPLET</h2>
               <% end%>
         <% end%>
