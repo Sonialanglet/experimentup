@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% if Rails.env.production? %>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137907444-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-137907444-1');
+
+        document.addEventListener('turbolinks:load', event => {
+          if (typeof gtag === 'function') {
+            gtag('config', 'UA-137907444-1', {
+              'page_location': event.data.url
+            });
+          }
+        });
+      </script>
+    <% end %>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><%= meta_title %></title>
