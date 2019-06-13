@@ -33,21 +33,13 @@
           <% if @event.date %>
              <p> <strong>Date de l'activité :</strong> <%= @event.date.strftime("%d %B %Y - %H h %M") %></p>
             <% end %>
-            <% if  @event.number_of_participants %>
-              <p> <strong> Nombre de places disponibles :</strong>  <%= @event.number_of_participants - @event.participations.where(status:'payé').sum(:quantity)%></p>
-              <% if  @event.number_of_participants - @event.participations.where(status:'payé').sum(:quantity) < 0 %>
-              <h2> COMPLET</h2>
-              <% end%>
-        <% end%>
+
         <p> <strong> Tarif :</strong>  <%= @event.price_cents/100 %> euros</p>
         <h3> Réservez vos places ! </h3>
-          <%= simple_form_for [@participation] do |f| %>
-          <%= f.error_notification %>
-          <%= hidden_field_tag 'event_id', @event.id %>
-          <%= f.input :quantity, label: "Nombre de places", required: true %>
-          <%= f.input :phone, label: "Telephone", placeholder: 'Doe' %>
-          <%= f.button :submit, 'Reserver', class: "btn-plusone_regular" %>
-          <% end %>
+
+          <a target="_blank" href="https://www.billetweb.fr/initiation-au-graff-deviens-tagger"><img style="width:200px;" src="https://www.billetweb.fr/images/buttons/billetterie_bleu.png"></a>
+
+
         </div>
       </div>
     </div>
