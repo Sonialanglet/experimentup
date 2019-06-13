@@ -37,8 +37,9 @@
 
 
   <div class="row">
-    <% @events.each do |event| %>
+    <% @events.sort.reverse.each do |event| %>
       <div class="col-xs-12 col-md-8 col-md-offset-2">
+
         <%= render 'shared/card-event', event: event %>
         <!-- insert <div class="card"> -->
       </div>
